@@ -1,12 +1,15 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
+import { itemType } from "../../utils/items"
+import { buildingRecipeType } from "../../utils/buildingsRecipe"
+import { itemRecipeType } from "../../utils/itemsRecipe"
+import { buildingType } from "../../utils/buildings"
 
 type playerStateType = {
 	value: number
-	// buildings: buildingType[]
-	buildings: []
-	buildingsRecipes: []
-	items: []
-	itemsRecipes: []
+	buildings: buildingType[]
+	buildingsRecipes: buildingRecipeType[]
+	items: itemType[]
+	itemsRecipes: itemRecipeType[]
 	progress: []
 }
 
