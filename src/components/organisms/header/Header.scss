@@ -5,8 +5,10 @@
   display: flex;
   justify-content: center;
   background: var(--black);
+  z-index: 100;
 
   &__container {
+    background: var(--black);
     width: 100%;
     height: 50px;
     padding: 0 20px;
@@ -14,9 +16,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
   }
 
-  &__links {
+  &__nav {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,6 +27,7 @@
   }
 
   &__logo, &__link {
+    display: flex;
     color: var(--gray);
     transition: color .1s, text-decoration-color .1s;
 
@@ -31,5 +35,79 @@
       color: var(--light);
     }
   }
+
+  &__logo {
+    border-radius: 50%;
+    box-shadow: 0px 0px 20px 0px transparent;
+    transition: box-shadow .2s;
+
+    &:focus-visible, &:hover {
+      box-shadow: 0px 0px 20px 0px var(--light);
+    }
+  }
+
+  &__toggle-nav {
+    display: none;
+    
+    rect {
+      transition: transform .3s;
+      transform-origin: center;
+    }
+  }
+
+  &__toggle-nav--open {
+
+    rect:nth-child(1) {
+      transform: rotate(45deg) translateY(6px);
+    }
+    rect:nth-child(2) {
+      transform: rotate(45deg);
+    }
+    rect:nth-child(3) {
+      transform: rotate(-45deg) translateY(-6px);
+    }
+  }
+
+  &__mobile-nav {
+    display: none;
+    top: 50px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    z-index: -1;
+    position: fixed;
+    width: 100%;
+    background: var(--black);
+    padding: 20px;
+    transform: translateY(calc(-100% - 50px));
+    transition: transform .3s;
+    border-top: 1px solid var(--gray);
+    
+    a {
+      width: 100%;
+    }
+  }
 }
 
+@media (max-width: 600px) {
+  .header {
+    &__nav{
+      display: none;
+    }
+
+    &__toggle-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &__mobile-nav {
+      display: flex;
+    }
+
+    &__mobile-nav--open {
+      transform: translateY(0px);
+    }
+  }
+}

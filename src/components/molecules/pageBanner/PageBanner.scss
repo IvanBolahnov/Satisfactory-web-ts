@@ -1,0 +1,30 @@
+.page-banner {
+  width: 100%;
+  height: 300px;
+  box-shadow: inset 0px -2px 50px 0px var(--black);    
+  
+  .page-banner__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background: linear-gradient( var(--black), transparent);
+    padding: 150px 20px;
+    clip-path: inset(0);
+  }
+
+  h1 {
+    position: fixed;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin: 20px;
+    background: var(--light);
+    color: var(--dark);
+    border-radius: 10px;
+    box-shadow: 0 0 20px 0 var(--light);
+  }
+}
